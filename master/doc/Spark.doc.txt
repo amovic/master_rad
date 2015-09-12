@@ -1,0 +1,22 @@
+﻿Pokretanje Sparka 1.4.1
+
+
+[cloudera@quickstart target]$ /home/cloudera/spark-1.4.1/bin/spark-submit --packages harsha2010:magellan:1.0.3-s_2.10 --master local[*] --class TestShape master-0.0.1-SNAPSHOT.jar > log3.geojson
+
+
+Prevođenje iz SHP u GeoJSON 
+
+
+D:\QGIS>"c:\Program Files\QGIS Wien\bin\ogr2ogr.exe" -f "GeoJSON" -dim 2 parcele .geojson parcele.shp
+
+
+(potrebna najnovija verzija ogr2ogr, ima je u QGIS-u)
+
+
+
+Uradjeno
+
+Pripremljeni su podaci o parcelama i brojevima parcela u GeoJson formatu. Podaci su ucitani u dataframe-ove
+kroz magellan biblioteku. Primjenjene su prostorne operacije intersects i within i formiran je novi 
+dataframe gdje su parcelama pridruzeni odgovarajuci brojevi. Radjen je spatial join izmedju brojeva parcela koje su tacke
+i parcela koje su poligoni.
